@@ -1,0 +1,19 @@
+!!! 5
+%html
+%head
+  %title TEAM COFFEE
+  = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+  = javascript_include_tag 'application', 'data-turbolinks-track' => true 
+  = csrf_meta_tags
+%body
+  %nav.navbar.navbar-default
+    .container
+      .navbar.navbar-brand= link_to "Coffee Box", root_path
+      .navbar-right.navbar-brand= link_to "Recipe", new_recipe_path
+
+    
+  .container
+    - flash.each do |name, msg|
+      = content_tag :div, msg, class: "alert"
+    
+    = yield
