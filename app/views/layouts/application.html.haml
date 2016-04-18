@@ -9,7 +9,12 @@
   %nav.navbar.navbar-default
     .container
       .navbar.navbar-brand= link_to "Coffee Box", root_path
-      .navbar-right.navbar-brand= link_to "Recipe", new_recipe_path
+      .navbar-right.navbar-brand= link_to "Menu", new_recipe_path
+      - if @current_user
+        .navbar-right.navbar-brand  Welcome, #{@current_user.name}!
+        .navbar-right.navbar-brand= link_to 'Log Out', logout_path
+      - else
+        .navbar-right.navbar-brand= link_to 'Log in with your Twitter account', '/auth/twitter'
 
     
   .container
@@ -17,3 +22,6 @@
       = content_tag :div, msg, class: "alert"
     
     = yield
+
+
+

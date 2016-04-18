@@ -6,7 +6,6 @@ class RecipesController < ApplicationController
     end
     
     def show
-        
     end
     
     def new
@@ -30,14 +29,9 @@ class RecipesController < ApplicationController
     def update
         if @recipe.update(recipe_params)
             redirect_to @recipe
-        else
+        elsif
             render 'edit'
         end
-    end
-    
-    def order
-        @recipe.destroy
-        redirect_to root_path, notice: "Order Successfully"
     end
     
     
