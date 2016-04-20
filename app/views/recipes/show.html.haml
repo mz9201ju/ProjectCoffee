@@ -1,12 +1,17 @@
 // = image_tag @recipe.image.url(:medium, class: "recipe_image")
-= link_to image_tag('images.jpg')
-%h1=@recipe.id
-%h1=@recipe.milk
-%h1= @recipe.sugar
-%h1= @recipe.coffee_blend
-%h1= @recipe.strength
+
+-if @recipe.id
+    %h1 <strong><u>Your order number is</u>: <strong>
+    %h1=@recipe.id
+-if @recipe.milk or @recipe.sugar or @recipe.coffee_blend or @recipe.strength
+    %h1 <strong><u>You added</u>: <strong>
+    %h1= @recipe.milk
+    %h1= @recipe.sugar
+    %h1= @recipe.coffee_blend
+    %h1= @recipe.strength
+
+
 
 = link_to "Back", root_path, class: "btn btn-default"
 = link_to "Edit", edit_recipe_path, class: "btn btn-default"
-= link_to "Order", recipe_path, class: "btn btn-default"
-= link_to "Delete", recipe_path, method: :delete, data: {confirm: "Are you sure!"}, class: "btn btn-default"
+= link_to "Cancle Order", recipe_path, method: :delete, data: {confirm: "Are you sure!"}, class: "btn btn-default"

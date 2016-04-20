@@ -16,7 +16,7 @@ class RecipesController < ApplicationController
         @recipe = Recipe.new(recipe_params)
         
         if @recipe.save
-            redirect_to @recipe, notice: "Successfully"
+            redirect_to @recipe, notice: "Order Successfully"
         else
             render 'new'
         end
@@ -28,7 +28,7 @@ class RecipesController < ApplicationController
     
     def update
         if @recipe.update(recipe_params)
-            redirect_to @recipe
+            redirect_to @recipe, notice: "Order Edit Successfully"
         elsif
             render 'edit'
         end
@@ -37,7 +37,7 @@ class RecipesController < ApplicationController
     
     def destroy
         @recipe.destroy
-        redirect_to root_path, notice: "Successfully Deleted"
+        redirect_to root_path, notice: "Order Cancled"
     end
     
     

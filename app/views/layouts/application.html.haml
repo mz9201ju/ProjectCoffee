@@ -23,17 +23,16 @@
               = link_to "Logout", destroy_user_session_path, :method => :delete, class: "btn btn-large btn-primary"
               = link_to "Profile", edit_user_registration_path, class: "btn btn-large btn-primary"
           - else
-            = link_to "Sign in", new_user_session_path, class: "btn btn-large btn-primary"
-        .navbar-right.navbar-brand
-          = link_to "Order Now", new_recipe_path
+            .navbar.navbar-brand
+              = link_to "Sign in", new_user_session_path, class: "btn btn-large btn-primary"
         
         - if @current_user
-          .navbar-right.navbar-brand Welcome, \#{@current_user.name}!
+          .navbar-right.navbar-brand Welcome, @current_user.name
           .navbar-right.navbar-brand
-            = link_to 'Log Out', logout_path
+            = link_to 'Log Out', logout_path, class: "btn btn-large btn-primary"
         - else
           .navbar-right.navbar-brand
-            = link_to 'Log in with your Twitter account', '/auth/twitter'
+            = link_to 'Log in with your Twitter account', '/auth/twitter', class: "btn btn-large btn-primary"
     .container
       - flash.each do |name, msg|
         = content_tag :div, msg, class: "alert"
