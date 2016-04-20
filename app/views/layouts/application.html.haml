@@ -19,11 +19,9 @@
           = link_to "Admin Logout", destroy_admin_session_path, :method => :delete
         - else
           - if user_signed_in?
-
-            = link_to "Logout", destroy_user_session_path, :method => :delete
-            %li
+            .navbar.navbar-brand
               = link_to "Logout", destroy_user_session_path, :method => :delete, class: "btn btn-large btn-primary"
-            %li= link_to "Profile", edit_user_registration_path, class: "btn btn-large btn-primary"
+              = link_to "Profile", edit_user_registration_path, class: "btn btn-large btn-primary"
           - else
             = link_to "Sign in", new_user_session_path, class: "btn btn-large btn-primary"
         .navbar-right.navbar-brand
