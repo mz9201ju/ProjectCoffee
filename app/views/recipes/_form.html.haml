@@ -1,3 +1,4 @@
+
 = simple_form_for @recipe, html: {mutipart: true} do |f|
     - if @recipe.errors.any?
         #errors
@@ -8,8 +9,36 @@
                 - @recipe.errors.full_messages.each do |msg|
                     %li = msg
     .panel-body
-        = f.input :title, input_html: {class: 'form-control' }
-        = f.input :description, input_html: {class: 'form-control' }
-        = f.input :image, input_html: {class: 'form-control' }
-    
-    =f.button :submit, value: "Coffee", class: "btn btn-primary"
+        = radio_button_tag(:milk, "Regular Milk")
+        = label_tag(:milk_type, "Regular Milk") 
+        = radio_button_tag(:milk, "Skim Milk") 
+        = label_tag(:milk_type, "Skim Milk") 
+        = radio_button_tag(:milk, "Lactose") 
+        = label_tag(:milk_type, "Lactose") 
+        = radio_button_tag(:milk, "Soy") 
+        = label_tag(:milk_type, "Soy") 
+        %br
+        = radio_button_tag(:sugar, "None") 
+        = label_tag(:sugar_content, "None") 
+        = radio_button_tag(:sugar, "1 teaspoons") 
+        = label_tag(:sugar_content, "1 teaspoons") 
+        = radio_button_tag(:sugar, "2 teaspoons") 
+        = label_tag(:sugar_content, "2 teaspoons") 
+        = radio_button_tag(:sugar, "3 teaspoons") 
+        = label_tag(:sugar_content, "3 teaspoons") 
+        %br
+        = radio_button_tag(:coffee_blend, "Regular") 
+        = label_tag(:coffee_blend_type, "Regular") 
+        = radio_button_tag(:coffee_blend, "Decaf") 
+        = label_tag(:coffee_blend_type, "Decaf") 
+        %br
+        = radio_button_tag(:strength, "Weak") 
+        = label_tag(:coffee_strength, "Weak") 
+        = radio_button_tag(:strength, "Regular") 
+        = label_tag(:coffee_strength, "Regular") 
+        = radio_button_tag(:strength, "Strong") 
+        = label_tag(:coffee_strength, "Strong") 
+        = radio_button_tag(:strength, "Extra Strong") 
+        = label_tag(:coffee_strength, "Extra Strong") 
+
+    =f.button :submit, value: "Order", class: "btn btn-primary" 

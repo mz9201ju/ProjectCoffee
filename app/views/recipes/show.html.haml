@@ -1,6 +1,10 @@
-= image_tag @recipe.image.url(:medium, class: "recipe_image")
-%h1= @recipe.title
-%p= @recipe.description
+// = image_tag @recipe.image.url(:medium, class: "recipe_image")
+= link_to image_tag('images.jpg')
+%h1=@recipe.id
+%h1=@recipe.milk
+%h1= @recipe.sugar
+%h1= @recipe.coffee_blend
+%h1= @recipe.strength
 
 = link_to "Back", root_path, class: "btn btn-default"
 = link_to "Edit", edit_recipe_path, class: "btn btn-default"

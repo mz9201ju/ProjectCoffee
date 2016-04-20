@@ -1,27 +1,42 @@
-!!! 5
+!!!
 %html
-%head
-  %title TEAM COFFEE
-  = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-  = javascript_include_tag 'application', 'data-turbolinks-track' => true 
-  = csrf_meta_tags
-%body
-  %nav.navbar.navbar-default
+%html
+  %head
+    %title TEAM COFFEE
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    %nav.navbar.navbar-default
+      .container
+        .navbar.navbar-brand
+          = link_to "Coffee Box", root_path, class: "btn btn-large btn-primary"
+          = link_to "Sign up now!", new_user_registration_path, class: "btn btn-large btn-primary"
+        .navbar.navbar-brand
+          = link_to "Admin",	 new_admin_session_path, class: "btn btn-large btn-primary"
+        - if admin_signed_in?
+          = link_to "Users", '#'
+          = link_to "Admin Logout", destroy_admin_session_path, :method => :delete
+        - else
+          - if user_signed_in?
+
+            = link_to "Logout", destroy_user_session_path, :method => :delete
+            %li
+              = link_to "Logout", destroy_user_session_path, :method => :delete, class: "btn btn-large btn-primary"
+            %li= link_to "Profile", edit_user_registration_path, class: "btn btn-large btn-primary"
+          - else
+            = link_to "Sign in", new_user_session_path, class: "btn btn-large btn-primary"
+        .navbar-right.navbar-brand
+          = link_to "Order Now", new_recipe_path
+        
+        - if @current_user
+          .navbar-right.navbar-brand Welcome, \#{@current_user.name}!
+          .navbar-right.navbar-brand
+            = link_to 'Log Out', logout_path
+        - else
+          .navbar-right.navbar-brand
+            = link_to 'Log in with your Twitter account', '/auth/twitter'
     .container
-      .navbar.navbar-brand= link_to "Coffee Box", root_path
-      .navbar-right.navbar-brand= link_to "Menu", new_recipe_path
-      - if @current_user
-        .navbar-right.navbar-brand  Welcome, #{@current_user.name}!
-        .navbar-right.navbar-brand= link_to 'Log Out', logout_path
-      - else
-        .navbar-right.navbar-brand= link_to 'Log in with your Twitter account', '/auth/twitter'
-
-    
-  .container
-    - flash.each do |name, msg|
-      = content_tag :div, msg, class: "alert"
-    
-    = yield
-
-
-
+      - flash.each do |name, msg|
+        = content_tag :div, msg, class: "alert"
+      = yield
