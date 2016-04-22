@@ -14,10 +14,9 @@
           = link_to "Sign up now!", new_user_registration_path, class: "btn btn-large btn-primary"
           
         - if admin_signed_in?
-          .navbar-right.navbar-brand
-            = link_to "Users", '#', class: "btn btn-large btn-primary"
           .navbar.navbar-brand
             = link_to "Admin Logout", destroy_admin_session_path, :method => :delete, class: "btn btn-large btn-primary"
+            
         -else
           .navbar.navbar-brand
             = link_to "Admin",	 admin_session_path, class: "btn btn-large btn-primary"
@@ -39,6 +38,7 @@
           - else
             .navbar-right.navbar-brand
               = link_to 'Twitter Login', '/auth/twitter', class: "btn btn-large btn-primary"
+
           
     .container
       - flash.each do |name, msg|
