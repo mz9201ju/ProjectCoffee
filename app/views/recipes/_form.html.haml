@@ -9,7 +9,9 @@
                 - @recipe.errors.full_messages.each do |msg|
                     %li = msg
     .panel-body
-        = radio_button_tag(:milk, "Milk Type?")
+        = label_tag(:milk, "Milk Type") 
+        %br
+        = radio_button_tag(:milk, "Regular Milk")
         = label_tag(:milk_type, "Regular Milk") 
         = radio_button_tag(:milk, "Skim Milk") 
         = label_tag(:milk_type, "Skim Milk") 
@@ -17,6 +19,8 @@
         = label_tag(:milk_type, "Lactose") 
         = radio_button_tag(:milk, "Soy") 
         = label_tag(:milk_type, "Soy") 
+        %br
+        = label_tag(:sugar, "Sugar Content")
         %br
         = radio_button_tag(:sugar, "No Suger") 
         = label_tag(:sugar_content, "No Suger") 
@@ -27,11 +31,14 @@
         = radio_button_tag(:sugar, "3 Teaspoons") 
         = label_tag(:sugar_content, "3 Teaspoons") 
         %br
+        = label_tag(:coffee_blend, "Coffee Blend") 
+        %br
         = radio_button_tag(:coffee_blend, "Regular Coffee") 
         = label_tag(:coffee_blend_type, "Regular Coffee") 
         = radio_button_tag(:coffee_blend, "Decaf Coffee") 
         = label_tag(:coffee_blend_type, "Decaf Coffee")
-
+        %br
+        = label_tag(:strength, "Coffee Strength") 
         %br
         = radio_button_tag(:strength, "Weak") 
         = label_tag(:coffee_strength, "Weak") 

@@ -6,6 +6,7 @@ class RecipesController < ApplicationController
     end
     
     def show
+        @recipe = Recipe.find(params[:id])
     end
     
     def new
@@ -51,5 +52,9 @@ class RecipesController < ApplicationController
     
     def find_recipe
         @recipe = Recipe.find(params[:id])
+    end
+    
+    def orders
+        @recipe = Recipe.all.order("created_at DESC")
     end
 end
