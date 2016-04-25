@@ -44,6 +44,10 @@ class RecipesController < ApplicationController
     
     private
     
+    def doIt
+        Recipe.where(:id => i).first
+    end
+    
     def recipe_params
         params.permit(params[:id],:milk, :sugar, :coffee_blend, :strength)
         

@@ -39,7 +39,9 @@
         - else
           .navbar.navbar-brand
             = link_to "Sign in", new_user_session_path, class: "btn btn-large btn-primary"
-            
+      
+
+
     .container
       - flash.each do |name, msg|
         = content_tag :div, msg, class: "alert"
