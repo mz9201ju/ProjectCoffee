@@ -1,5 +1,7 @@
--(1..40).each_slice(1) do |i|  
+-(1..100).each_slice(1) do |i|
   .row
     .col-sm-3
-      = link_to "Order Number#{i}" , Recipe.where(:id => i).first
+      - if Recipe.where(:id => i).first
+        = link_to "Order Number#{i}", Recipe.where(:id => i).first
     .col-sm-3
+  
