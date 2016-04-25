@@ -26,9 +26,7 @@
             = link_to "Admin Logout", destroy_admin_session_path, :method => :delete, class: "btn btn-large btn-primary"
           .navbar-right.navbar-brand
             = link_to "Orders", order_path, class: "btn btn-large btn-primary"
-          // .navbar-right.navbar-brand
-          //   -(1..40).each_slice(3) do |i|
-          //     = link_to "Profile", Recipe.where(:id => i).first
+
         -else
           .navbar.navbar-brand
             = link_to "Admin",	 admin_session_path, class: "btn btn-large btn-primary"
@@ -41,23 +39,7 @@
         - else
           .navbar.navbar-brand
             = link_to "Sign in", new_user_session_path, class: "btn btn-large btn-primary"
-      
-        
-        
-        
-        
-        // - if user_signed_in?
-        //   .navbar-right.navbar-brand
-        //     = link_to "Logout", destroy_user_session_path, :method => :delete, class: "btn btn-large btn-primary"
-        //     = link_to "Profile", edit_user_registration_path, class: "btn btn-large btn-primary"
-        // - else
-        //   .navbar.navbar-brand
-        //    
             
-        
-       
-
-          
     .container
       - flash.each do |name, msg|
         = content_tag :div, msg, class: "alert"
