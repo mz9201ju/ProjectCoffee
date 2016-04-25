@@ -43,6 +43,10 @@ class RecipesController < ApplicationController
     
     private
     
+    def doIt
+        Recipe.where(:id => i).first
+    end
+    
     def recipe_params
         params.permit(params[:id],:milk, :sugar, :coffee_blend, :strength)
         
@@ -51,5 +55,9 @@ class RecipesController < ApplicationController
     
     def find_recipe
         @recipe = Recipe.find(params[:id])
+    end
+    
+    def orders
+        @recipe = Recipe.all.order("created_at DESC")
     end
 end
