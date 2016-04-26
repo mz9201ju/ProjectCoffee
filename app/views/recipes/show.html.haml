@@ -10,8 +10,6 @@
     %h1= @recipe.coffee_blend
     %h1= @recipe.strength
 
-
-
 = link_to "Back", root_path, class: "btn btn-default"
 = link_to "Edit", edit_recipe_path, class: "btn btn-default"
 = link_to "Cancel Order", recipe_path, method: :delete, data: {confirm: "Are you sure!"}, class: "btn btn-default"
