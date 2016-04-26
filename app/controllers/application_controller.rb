@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protected # prevents method from being invoked by a route
   def set_current_user
     # we exploit the fact that find_by_id(nil) returns nil
-    @current_user ||= Moviegoer.find_by_id(session[:user_id])
+    @current_user ||= Coffeeuser.find_by_id(session[:user_id])
     
   end
   def configure_permitted_parameters
